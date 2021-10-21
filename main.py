@@ -17,7 +17,7 @@ def CHECKMODE():
         CHECKMODE()
 
 def on_button_pressed_a():
-    basic.show_string("" + str((MODE)))
+    basic.show_string("" + str(MODE))
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def コメット(flg: bool):
@@ -28,7 +28,7 @@ def コメット(flg: bool):
         for index in range(5):
             j = 0
             for index2 in range(7):
-                strip.set_pixel_color(i * 29 + j, neopixel.hsl(i * 72 + j * 10, 200, 25))
+                strip.set_pixel_color(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 25))
                 j += 1
             i += 1
     elif flg == False:
@@ -49,14 +49,14 @@ def 虹色ウェーブ(flg2: bool):
         for index3 in range(15):
             j = 0
             for index4 in range(1):
-                strip.set_pixel_color(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 20))
+                strip.set_pixel_color(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 25))
                 j += 1
             i += 1
         strip.rotate(1)
         strip.show()
         電流値()
         明るさ += 0.2
-        basic.pause(10)
+        basic.pause(20)
 
 def on_sound_loud():
     global MODE
@@ -129,7 +129,7 @@ def 電流値():
         電流 = strip.power()
 
 def on_logo_pressed():
-    basic.show_string("" + str((電流)))
+    basic.show_string("" + str(電流))
 input.on_logo_event(TouchButtonEvent.PRESSED, on_logo_pressed)
 
 def 赤ドクドク(flg5: bool):

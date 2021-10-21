@@ -30,7 +30,7 @@ function コメット(flg: boolean) {
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index2 = 0; index2 < 7; index2++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j * 10, 200, 25))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 25))
                 j += 1
             }
             i += 1
@@ -57,7 +57,7 @@ function 虹色ウェーブ(flg2: boolean) {
         for (let index3 = 0; index3 < 15; index3++) {
             j = 0
             for (let index4 = 0; index4 < 1; index4++) {
-                strip.setPixelColor(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 20))
+                strip.setPixelColor(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 25))
                 j += 1
             }
             i += 1
@@ -66,7 +66,7 @@ function 虹色ウェーブ(flg2: boolean) {
         strip.show()
         電流値()
         明るさ += 0.2
-        basic.pause(10)
+        basic.pause(20)
     }
     
 }
