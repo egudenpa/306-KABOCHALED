@@ -21,14 +21,18 @@ def on_button_pressed_a():
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def コメット(flg: bool):
-    global i, j
+    global i, j, LEDNo, 色相, 彩度, 輝度
     if flg == True:
         strip.set_brightness(255)
         i = 0
         for index in range(5):
             j = 0
             for index2 in range(7):
-                strip.set_pixel_color(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 25))
+                LEDNo = i * 29 + j
+                色相 = i * 60 + j * 5
+                彩度 = 200
+                輝度 = 25
+                strip.set_pixel_color(LEDNo, neopixel.hsl(色相, 彩度, 輝度))
                 j += 1
             i += 1
     elif flg == False:
@@ -37,7 +41,7 @@ def コメット(flg: bool):
         電流値()
         basic.pause(10)
 def 虹色ウェーブ(flg2: bool):
-    global LEDNo, SIN, i, j, 明るさ
+    global LEDNo, SIN, i, j, 色相, 彩度, 輝度, 明るさ
     if flg2 == True:
         strip.show_color(neopixel.colors(NeoPixelColors.BLACK))
         strip.set_brightness(240)
@@ -49,7 +53,11 @@ def 虹色ウェーブ(flg2: bool):
         for index3 in range(15):
             j = 0
             for index4 in range(1):
-                strip.set_pixel_color(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 25))
+                LEDNo = i * 10 + j
+                色相 = i * 24 + j * 3
+                彩度 = 200
+                輝度 = 25
+                strip.set_pixel_color(LEDNo, neopixel.hsl(0, 0, 0))
                 j += 1
             i += 1
         strip.rotate(1)
@@ -146,20 +154,24 @@ def 赤ドクドク(flg5: bool):
         電流値()
         basic.pause(40)
 def レインボー切り替え(flg6: bool):
-    global 色相
+    global 色相, 彩度, 輝度
     if flg6 == True:
         strip.set_brightness(80)
         色相 = 0
     elif flg6 == False:
         色相 += 10
-        strip.show_color(neopixel.hsl(色相, 200, 25))
+        彩度 = 200
+        輝度 = 25
+        strip.show_color(neopixel.hsl(0, 0, 0))
         電流値()
         basic.pause(100)
         if 色相 >= 260:
             色相 = 0
-色相 = 0
 明るさ = 0
 SIN = 0
+輝度 = 0
+彩度 = 0
+色相 = 0
 LEDNo = 0
 j = 0
 i = 0
